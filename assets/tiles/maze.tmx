@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="2020.02.12" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="10" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="maze" tilewidth="32" tileheight="32" tilecount="24" columns="4">
+  <image source="tiles.png" width="128" height="192"/>
+ </tileset>
+ <tileset firstgid="25" name="grain" tilewidth="32" tileheight="32" tilecount="10" columns="10">
+  <image source="grain.png" width="320" height="32"/>
+ </tileset>
+ <layer id="1" name="maze" width="10" height="20">
+  <data encoding="base64" compression="zlib">
+   eAF9ktkKAkEMBEfFCxQE9/D/v9Qu2IIwzO5D05kknYuZWmun4Brcg9vG1X7E9w7Iq3zJ+xx8AmxiNW4+MWxxlOcc9H/t1LPuqB6z1Di9mFGf86k1/5mcb9DvMW3aWgMbjPYwn5h7j/LwUcP+dT5n0Oes8Brs3QWd/dXaB9ZXWds4d/D2xuB+X+dWJ6vhjabewBisbT96giXgD/4CtHVfa6Htb2e9Ogc5+NEB3+TMgT175h+gY8c/BlcFxg==
+  </data>
+ </layer>
+ <layer id="2" name="grain" width="10" height="20">
+  <data encoding="base64" compression="zlib">
+   eAGV0AkOw0AIQ9Fco8v9z1l9JU9C03QJEjFgY6LZtutxP1aeY/U2aiU+LB9H4mHzgn7v3r94tyClng7iJ6b9xqfFQ/5w+p3V7XmryfP7NXMnzMc72Tvzjks3OTU/9/X8VsR/8qPnz9e8PdmMLly18VeCF//p13+XaVZd+n+C7gU5HwZY
+  </data>
+ </layer>
+</map>
