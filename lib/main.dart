@@ -119,8 +119,8 @@ class MyGame extends FlameGame with TapDetector {
         var layer = tiles.tileMap.map.layers[1] as TileLayer; // Grain
         var batches = tiles.tileMap.batchesByLayer[1]['grain.png'];
         var gid = layer.tileData![pos.y.floor()][pos.x.floor()];
-        layer.tileData![pos.y.floor()][pos.x.floor()] = Gid(0, gid.flips);
-        tiles.tileMap.update();
+        layer.tileData![pos.y.floor()][pos.x.floor()] = const Gid(0, Flips.defaults());
+        tiles.tileMap.refreshCache();
         score++;
         break;
       }
