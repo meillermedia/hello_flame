@@ -114,9 +114,13 @@ class MyGame extends FlameGame with TapDetector {
     }
     //Remove from same position
     for (var gr in children) {
-      if (gr is Grain &&
-          gr.tileX == pos.x && gr.tileY == pos.y) {
+      if (gr is Grain && gr.tileX == pos.x && gr.tileY == pos.y) {
         children.remove(gr);
+        var layer = tiles.tileMap.map.layers[1] as TileLayer; // Grain
+        var batches = tiles.tileMap.batchesByLayer[1]['grain.png'];
+        var gid = layer.tileData![pos.y.floor()][pos.x.floor()];
+        layer.tileData![pos.y.floor()][pos.x.floor()] = Gid(0, gid.flips);
+        tiles.tileMap.update();
         score++;
         break;
       }
@@ -124,13 +128,11 @@ class MyGame extends FlameGame with TapDetector {
   }
 
   Future<void> loadGrain() async {
-    var batches = tiles.tileMap.batches['grain.png'];
-    //final img = await Flame.images.load('grain.png');
+    var batches = tiles.tileMap.batchesByLayer[1]['grain.png'];
     var layer = tiles.tileMap.map.layers[1] as TileLayer; // Grain
     var tileData = layer.tileData;
+    //layer.visible = false;
     if (tileData != null && batches != null) {
-      batches.clear(); //Remove from map
-      //Add as components
       for (int y = 0; y < tileData.length; y++) {
         for (int x = 0; x < tileData[y].length; x++) {
           if (tileData[y][x].tile > 0) {
@@ -144,10 +146,12 @@ class MyGame extends FlameGame with TapDetector {
     }
   }
 }
+
 //Grain with tile position
 class Grain extends SpriteComponent {
   late int tileX, tileY;
-  Grain.fromImage(this.tileX, this.tileY, img, 
+  Grain.fromImage(this.tileX, this.tileY, img,
       {required srcPosition, required srcSize, required position})
-      : super.fromImage(img, srcPosition: srcPosition, srcSize: srcSize, position: position);
+      : super.fromImage(img,
+            srcPosition: srcPosition, srcSize: srcSize, position: position);
 }
