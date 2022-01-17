@@ -2,9 +2,9 @@ import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
+import 'package:flame/extensions.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:tiled/tiled.dart';
-import 'package:flame/sprite.dart';
 
 late TiledComponent tiles;
 late SpriteAnimation leftChicken, rightChicken, upChicken, downChicken, chicken;
@@ -70,7 +70,7 @@ class MyGame extends FlameGame with TapDetector {
   @override
   void onTapDown(TapDownInfo info) {
     var tl = tiles.tileMap.map.layers[0] as TileLayer;
-    var p = info.eventPosition.viewportOnly;
+    var p = info.eventPosition.viewport;
     var chpos = pos * 32 + Vector2(16, 16);
     var diff = p - chpos;
     var tileData = tl.tileData;
